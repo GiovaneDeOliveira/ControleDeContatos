@@ -20,7 +20,8 @@ namespace ControleDeContatos.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<ContatoModel> contatos = _contatoRepositorio.BuscarTodos();
+            return View(contatos);
         }
 
         public IActionResult Criar()
@@ -28,9 +29,10 @@ namespace ControleDeContatos.Controllers
             return View();
         }
 
-        public IActionResult Editar()
+        public IActionResult Editar(int ID)
         {
-            return View();
+            ContatoModel contato = _contatoRepositorio.ListarPorId(ID);
+            return View(contato);
         }
         public IActionResult ApagarConfirmacao()
         {

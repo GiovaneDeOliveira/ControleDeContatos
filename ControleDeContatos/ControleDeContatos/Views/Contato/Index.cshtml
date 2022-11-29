@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<ContatoModel>
+
+@{
     ViewData["Title"] = "Listagem de Contatos";
 }
 
@@ -20,30 +22,27 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>algo@gmail.com</td>
-            <td>21 98549-4598 </td>
-            <td>
-                <div class="btn-group" role="button">
-                    <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
-                    <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Outro</td>
-            <td> algo@gmail.com </td>
-            <td>21 98549-4598 </td>
-            <td>
-                <div class="btn-group" role="button">
-                    <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
-                    <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
-                </div>
-            </td>
-        </tr>
+
+        @if (Model != null && Model.Any())
+        {
+           foreach (ContatoModel contato in Model)
+            {
+                <tr>
+                    <th scope="row">@contato.ID</th>
+                    <td>@contato.Nome</td>
+                    <td>@contato.Email</td>
+                    <td>@contato.Celular</td>
+                    <td>
+                        <div class="btn-group" role="button">
+                            <a role="button" class="btn btn-primary" asp-controller="Contato" asp-route-id="@contato.ID" asp-action="Editar">Editar</a>
+                            <a role="button" class="btn btn-danger"  asp-controller="Contato" asp-route-id="@contato.ID" asp-action="ApagarConfirmacao">Apagar</a>
+
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        }
 
     </tbody>
 </table>

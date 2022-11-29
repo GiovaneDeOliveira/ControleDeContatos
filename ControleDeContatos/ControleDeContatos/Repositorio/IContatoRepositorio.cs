@@ -8,5 +8,9 @@ namespace ControleDeContatos.Repositorio
         //e que vai retornar ele mesmo deve ser usado na classe ContatoRepositorio
         //por injeção
         ContatoModel Adicionar(ContatoModel contato);
+
+        List<ContatoModel> BuscarTodos();
+
+        ContatoModel ListarPorId(int Id);
     }
 }
