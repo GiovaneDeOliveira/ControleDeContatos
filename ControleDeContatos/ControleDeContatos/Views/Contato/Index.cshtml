@@ -4,10 +4,25 @@
     ViewData["Title"] = "Listagem de Contatos";
 }
 
-<h1>Listagem de Contatos</h1>
-<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-    <a class="btn btn-primary" asp-controller="Contato" asp-action="Criar" role="button">Adicionar novo contato</a>
-</div>
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" asp-controller="Contato" asp-action="Criar" role="button">Adicionar novo contato</a>
+    </div>
+
+    <br />
+
+    <h1 class="display-4">Listagem de contatos</h1>
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-success btn-sm close-alert" aria-label="Close">X</button>
+        A simple success alert—check it out!
+    </div>
+
+    <div class="alert alert-danger" role="alert">
+
+        <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+        A simple danger alert—check it out!
+    </div>
 
 <table class="table">
     <thead>

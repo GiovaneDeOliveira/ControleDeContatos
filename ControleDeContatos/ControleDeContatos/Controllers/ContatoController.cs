@@ -38,19 +38,23 @@ namespace ControleDeContatos.Controllers
         [HttpPost]
         public IActionResult Criar(ContatoModel contato)
         {
-            //Injetar o contatoRepositorio
-            _contatoRepositorio.Adicionar(contato);
-            return RedirectToAction("Index");
-
+            if (ModelState.IsValid)
+            {
+                _contatoRepositorio.Adicionar(contato);
+                return RedirectToAction("Index");
+            }
+            return View(contato);
         }
 
         [HttpPost]
         public IActionResult Alterar(ContatoModel contato)
         {
-
-            _contatoRepositorio.Atualizar(contato);
-            return RedirectToAction("Index");
-
+            if (ModelState.IsValid)
+            {
+                _contatoRepositorio.Atualizar(contato);
+                return RedirectToAction("Index");
+            }
+            return View("Editar", contato);
         }
 
 
